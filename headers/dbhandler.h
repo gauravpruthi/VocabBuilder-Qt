@@ -5,6 +5,10 @@
 #include <QMessageBox>
 #include <QSqlQuery>
 #include "basedata.h"
+#include <QDebug>
+#include <QSqlError>
+
+#define DB_PATH "./"
 
 class DBHandler
 {

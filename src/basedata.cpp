@@ -1,17 +1,15 @@
 #include "basedata.h"
 
 
-qint32 BaseData::getLevel() const
-{
-    return level;
-}
-
-void BaseData::setLevel(const qint32 &value)
-{
-    level = value;
-}
-BaseData::BaseData()
-{
+BaseData::BaseData(){
+    word = "";
+    meaning = "";
+    synonyms = "";
+    antonyms = "";
+    example = "";
+    level = 0;
+    access_count = 0;
+    last_access= 0;
 }
 
 QString BaseData::getWord() const
@@ -62,5 +60,25 @@ QString BaseData::getExample() const
 void BaseData::setExample(const QString &value)
 {
     example = value;
+}
+
+qint32 BaseData::getLevel() const
+{
+    return level;
+}
+
+void BaseData::setLevel(const qint32 &value)
+{
+    level = value;
+}
+
+qint32 BaseData::getAccess_count() const
+{
+    return access_count;
+}
+
+qint32 BaseData::getLast_access() const
+{
+    return last_access;
 }
 

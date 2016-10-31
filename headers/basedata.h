@@ -14,23 +14,10 @@ private:
     QString antonyms;
     QString example;
     qint32 level;
+    qint32 access_count;
+    qint32 last_access;
 
 public:
-    BaseData();
-    QString getWord() const;
-    void setWord(const QString &value);
-    QString getMeaning() const;
-    void setMeaning(const QString &value);
-    QString getSynonyms() const;
-    void setSynonyms(const QString &value);
-    QString getAntonyms() const;
-    void setAntonyms(const QString &value);
-
-    QString getExample() const;
-    void setExample(const QString &value);
-    qint32 getLevel() const;
-    void setLevel(const qint32 &value);
-
     enum WordType
     {
          Word,
@@ -38,6 +25,28 @@ public:
     };
     WordType type;
 
+    BaseData();
+    QString getWord() const;
+    void setWord(const QString &value);
+
+    QString getMeaning() const;
+    void setMeaning(const QString &value);
+
+    QString getSynonyms() const;
+    void setSynonyms(const QString &value);
+
+    QString getAntonyms() const;
+    void setAntonyms(const QString &value);
+
+    QString getExample() const;
+    void setExample(const QString &value);
+
+    qint32 getLevel() const;
+    void setLevel(const qint32 &value);
+
+    qint32 getAccess_count() const;
+
+    qint32 getLast_access() const;
 };
 
 #endif // BASEDATA_H

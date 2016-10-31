@@ -2,9 +2,10 @@
 #define VOCABMAIN_H
 
 #include <QMainWindow>
+#include "dbhandler.h"
 
 namespace Ui {
-class VocabMain;
+    class VocabMain;
 }
 
 class VocabMain : public QMainWindow
@@ -15,13 +16,16 @@ public:
     explicit VocabMain(QWidget *parent = 0);
     ~VocabMain();
     void setUpControls();
+    void clearFields();
 
 private:
     Ui::VocabMain *ui;
+    DBHandler *dbHandler;
 
 public slots:
-        void handleCloseButton();
-        void handleSaveButton();
+    void handleCloseButton();
+    void handleSaveButton();
+    void handleIdiomRadioClicked();
 
 };
 
