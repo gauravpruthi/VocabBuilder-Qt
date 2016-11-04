@@ -34,16 +34,16 @@ void VocabMain::handleCloseButton(){
 
 void VocabMain::handleSaveButton(){
 
-    if(ui->fieldWord->text().size() == 0 || ui->fieldMeaning->toPlainText().size() == 0 ) {
+    if(ui->fieldWord->text().size() == 0 || ui->fieldMeaning->text().size() == 0 ) {
         QMessageBox::information(0,"Warning","Either word or meaning is left empty");
         return;
     }
     BaseData b;
     b.setWord(ui->fieldWord->text());
-    b.setMeaning(ui->fieldMeaning->toPlainText());
+    b.setMeaning(ui->fieldMeaning->text());
     b.setSynonyms(ui->fieldSyn->text());
     b.setAntonyms(ui->fieldAnt->text());
-    b.setExample(ui->fieldEx->toPlainText());
+    b.setExample(ui->fieldEx->text());
     if(ui->radioWord->isChecked())
         b.type = BaseData::Word;
     else
