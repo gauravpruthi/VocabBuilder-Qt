@@ -15,12 +15,13 @@ INCLUDEPATH += ./src
 INCLUDEPATH += ./headers
 
 SOURCES +=  src/main.cpp\
-            src/vocabmain.cpp \
             src/basedata.cpp \
-            src/dbhandler.cpp
+            src/dbhandler.cpp \
+    src/uihandler.cpp
 
-HEADERS  += headers/vocabmain.h \
+HEADERS  += \
             headers/basedata.h \
-            headers/dbhandler.h
+            headers/dbhandler.h \
+    headers/uihandler.h
 
 FORMS    += vocabmain.ui

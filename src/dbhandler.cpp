@@ -25,12 +25,11 @@ void DBHandler::saveData(BaseData baseData)
         query.bindValue(":level", baseData.getLevel());
     }
     else {
+        query.prepare("INSERT INTO idiomRecords (idiom, meaning, example) VALUES (:idiom, :meaning, :example)");
         query.bindValue(":idiom", baseData.getWord());
         query.bindValue(":meaning", baseData.getMeaning());
         query.bindValue(":example", baseData.getExample());
-        query.prepare("INSERT INTO idiomRecords (idiom, meaning, example) VALUES (:idiom, :meaning, :example)");
     }
-
 
 
     if (query.exec())
