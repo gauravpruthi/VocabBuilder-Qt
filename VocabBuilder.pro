@@ -17,11 +17,11 @@ INCLUDEPATH += ./headers
 SOURCES +=  src/main.cpp\
             src/basedata.cpp \
             src/dbhandler.cpp \
-    src/uihandler.cpp
+            src/uihandler.cpp
 
 HEADERS  += \
             headers/basedata.h \
             headers/dbhandler.h \
-    headers/uihandler.h
+            headers/uihandler.h
 
-FORMS    += vocabmain.ui
+FORMS    += uihandler.ui

@@ -1,49 +1,58 @@
 #include "uihandler.h"
-#include "ui_vocabmain.h"
+#include "ui_uihandler.h"
 #include "basedata.h"
 #include "dbhandler.h"
 
-VocabMain::VocabMain(QWidget *parent) :
+UIHandler::UIHandler(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::VocabMain)
+    ui(new Ui::UIHandler)
 {
     ui->setupUi(this);
     dbHandler = new DBHandler();
     setUpControls();
 }
 
-VocabMain::~VocabMain()
+UIHandler::~UIHandler()
 {
     delete ui;
 }
 
 
-void VocabMain::setUpControls(){
+void UIHandler::setUpControls(){
     ui->radioWord->setChecked(true);
     ui->radioWord->setAutoExclusive(true);
 
     QObject::connect(ui->buttonClose, SIGNAL (clicked()), this, SLOT (handleCloseButton()));
     QObject::connect(ui->buttonSave, SIGNAL (clicked()), this, SLOT (handleSaveButton()));
+    QObject::connect(ui->buttonFetch, SIGNAL (clicked()), this, SLOT (handleFetchButton()));
+    QObject::connect(ui->buttonUpdate, SIGNAL (clicked()), this, SLOT (handleUpdateButton()));
     QObject::connect(ui->radioIdiom, SIGNAL (toggled(bool)), this, SLOT (handleIdiomRadioClicked()));
 }
 
 
-void VocabMain::handleCloseButton(){
+void UIHandler::handleCloseButton(){
+    QCoreApplication::quit();
+}
+void UIHandler::handleFetchButton(){
     QCoreApplication::quit();
 }
 
-void VocabMain::handleSaveButton(){
+void UIHandler::handleUpdateButton(){
+    QCoreApplication::quit();
+}
 
-    if(ui->fieldWord->text().size() == 0 || ui->fieldMeaning->text().size() == 0 ) {
+void UIHandler::handleSaveButton(){
+
+    if(ui->fieldWord->text().size() == 0 || ui->fieldMeaning->toPlainText().size() == 0 ) {
         QMessageBox::information(0,"Warning","Either word or meaning is left empty");
         return;
     }
     BaseData b;
     b.setWord(ui->fieldWord->text());
-    b.setMeaning(ui->fieldMeaning->text());
+    b.setMeaning(ui->fieldMeaning->toPlainText());
     b.setSynonyms(ui->fieldSyn->text());
     b.setAntonyms(ui->fieldAnt->text());
-    b.setExample(ui->fieldEx->text());
+    b.setExample(ui->fieldEx->toPlainText());
     if(ui->radioWord->isChecked())
         b.type = BaseData::Word;
     else
@@ -54,7 +63,7 @@ void VocabMain::handleSaveButton(){
 
 }
 
-void VocabMain::clearFields(){
+void UIHandler::clearFields(){
     ui->fieldWord->setText("");
     ui->fieldMeaning->setText("");
     ui->fieldSyn->setText("");
@@ -62,7 +71,7 @@ void VocabMain::clearFields(){
     ui->fieldEx->setText("");
 }
 
-void VocabMain::handleIdiomRadioClicked(){
+void UIHandler::handleIdiomRadioClicked(){
     if (ui->radioIdiom->isChecked()) {
         ui->labelWord->setText("Idiom");
 

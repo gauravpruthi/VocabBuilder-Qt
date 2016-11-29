@@ -1,32 +1,34 @@
-#ifndef VOCABMAIN_H
-#define VOCABMAIN_H
+#ifndef UIHANDLER_H
+#define UIHANDLER_H
 
 #include <QMainWindow>
 #include "dbhandler.h"
 
 namespace Ui {
-    class VocabMain;
+    class UIHandler;
 }
 
-class VocabMain : public QMainWindow
+class UIHandler : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit VocabMain(QWidget *parent = 0);
-    ~VocabMain();
+    explicit UIHandler(QWidget *parent = 0);
+    ~UIHandler();
     void setUpControls();
     void clearFields();
 
 private:
-    Ui::VocabMain *ui;
+    Ui::UIHandler *ui;
     DBHandler *dbHandler;
 
 public slots:
     void handleCloseButton();
     void handleSaveButton();
+    void handleFetchButton();
+    void handleUpdateButton();
     void handleIdiomRadioClicked();
 
 };
 
-#endif // VOCABMAIN_H
+#endif // UIHANDLER_H
