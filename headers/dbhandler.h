@@ -4,6 +4,7 @@
 #include <QSqlDatabase>
 #include <QMessageBox>
 #include <QSqlQuery>
+#include <QSqlRecord>
 #include "basedata.h"
 #include <QDebug>
 #include <QSqlError>
@@ -16,6 +17,8 @@ class DBHandler
 public:
     DBHandler();
     void saveData(BaseData baseData);
+    void fetchData(BaseData **baseData);
+    void updateData(BaseData *baseData);
 };
 
 #endif // DBHANDLER_H
