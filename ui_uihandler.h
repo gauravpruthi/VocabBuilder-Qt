@@ -92,7 +92,7 @@ public:
         buttonFetch->setGeometry(QRect(380, 90, 75, 23));
         comboBox = new QComboBox(centralWidget);
         comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(150, 390, 69, 22));
+        comboBox->setGeometry(QRect(160, 390, 69, 22));
         fieldWord = new QLineEdit(centralWidget);
         fieldWord->setObjectName(QStringLiteral("fieldWord"));
         fieldWord->setGeometry(QRect(160, 100, 151, 20));

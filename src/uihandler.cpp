@@ -93,11 +93,11 @@ void UIHandler::handleSaveButton(){
         return;
     }
     BaseData b;
-    b.setWord(ui->fieldWord->text());
-    b.setMeaning(ui->fieldMeaning->toPlainText());
-    b.setSynonyms(ui->fieldSyn->text());
-    b.setAntonyms(ui->fieldAnt->text());
-    b.setExample(ui->fieldEx->toPlainText());
+    b.setWord(ui->fieldWord->text().trimmed());
+    b.setMeaning(ui->fieldMeaning->toPlainText().trimmed());
+    b.setSynonyms(ui->fieldSyn->text().trimmed());
+    b.setAntonyms(ui->fieldAnt->text().trimmed());
+    b.setExample(ui->fieldEx->toPlainText().trimmed());
     b.setLevel(ui->comboBox->currentText().toInt());
     if(ui->radioWord->isChecked())
         b.type = BaseData::Word;
