@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'uihandler.ui'
+** Form generated from reading UI file 'mainwindowui.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.1.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_UIHANDLER_H
-#define UI_UIHANDLER_H
+#ifndef UI_MAINWINDOWUI_H
+#define UI_MAINWINDOWUI_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -50,6 +50,7 @@ public:
     QLabel *labelHead;
     QTextEdit *fieldEx;
     QPushButton *buttonUpdate;
+    QPushButton *buttonUploadFile;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
     QButtonGroup *buttonGroup;
@@ -83,10 +84,10 @@ public:
         labelLevel->setGeometry(QRect(80, 390, 46, 13));
         buttonSave = new QPushButton(centralWidget);
         buttonSave->setObjectName(QStringLiteral("buttonSave"));
-        buttonSave->setGeometry(QRect(250, 430, 75, 23));
+        buttonSave->setGeometry(QRect(80, 430, 75, 23));
         buttonClose = new QPushButton(centralWidget);
         buttonClose->setObjectName(QStringLiteral("buttonClose"));
-        buttonClose->setGeometry(QRect(340, 430, 75, 23));
+        buttonClose->setGeometry(QRect(180, 430, 75, 23));
         buttonFetch = new QPushButton(centralWidget);
         buttonFetch->setObjectName(QStringLiteral("buttonFetch"));
         buttonFetch->setGeometry(QRect(380, 90, 75, 23));
@@ -195,6 +196,9 @@ public:
         buttonUpdate = new QPushButton(centralWidget);
         buttonUpdate->setObjectName(QStringLiteral("buttonUpdate"));
         buttonUpdate->setGeometry(QRect(380, 130, 75, 23));
+        buttonUploadFile = new QPushButton(centralWidget);
+        buttonUploadFile->setObjectName(QStringLiteral("buttonUploadFile"));
+        buttonUploadFile->setGeometry(QRect(380, 420, 75, 23));
         UIHandler->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(UIHandler);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -232,6 +236,7 @@ public:
         radioIdiom->setText(QApplication::translate("UIHandler", "Idiom", 0));
         labelHead->setText(QApplication::translate("UIHandler", "Welcome to VocabBuilder", 0));
         buttonUpdate->setText(QApplication::translate("UIHandler", "Update", 0));
+        buttonUploadFile->setText(QApplication::translate("UIHandler", "Upload File", 0));
     } // retranslateUi
 
 };
@@ -242,4 +247,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_UIHANDLER_H
+#endif // UI_MAINWINDOWUI_H

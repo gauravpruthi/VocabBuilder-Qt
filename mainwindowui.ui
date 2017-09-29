@@ -104,7 +104,7 @@
    <widget class="QPushButton" name="buttonSave">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>80</x>
       <y>430</y>
       <width>75</width>
       <height>23</height>
@@ -117,7 +117,7 @@
    <widget class="QPushButton" name="buttonClose">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>180</x>
       <y>430</y>
       <width>75</width>
       <height>23</height>
@@ -726,6 +726,19 @@
     </property>
     <property name="text">
      <string>Update</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonUploadFile">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>420</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Upload File</string>
     </property>
    </widget>
   </widget>

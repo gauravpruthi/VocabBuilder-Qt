@@ -17,11 +17,15 @@ INCLUDEPATH += ./headers
 SOURCES +=  src/main.cpp\
             src/basedata.cpp \
             src/dbhandler.cpp \
-            src/uihandler.cpp
+            src/mainwindowhandler.cpp \
+            src/filehandler.cpp
 
 HEADERS  += \
             headers/basedata.h \
             headers/dbhandler.h \
-            headers/uihandler.h
+            headers/mainwindowhandler.h \
+            headers/filehandler.h
 
-FORMS    += uihandler.ui
+FORMS    += \
+    fileuploadui.ui \
+    mainwindowui.ui

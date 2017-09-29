@@ -1,9 +1,9 @@
-#include "uihandler.h"
-#include "ui_uihandler.h"
+#include "mainwindowhandler.h"
+#include "ui_mainwindowui.h"
 #include "basedata.h"
 #include "dbhandler.h"
 
-UIHandler::UIHandler(QWidget *parent) :
+MainWindowHandler::MainWindowHandler(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::UIHandler)
 {
@@ -12,13 +12,13 @@ UIHandler::UIHandler(QWidget *parent) :
     setUpControls();
 }
 
-UIHandler::~UIHandler()
+MainWindowHandler::~MainWindowHandler()
 {
     delete ui;
 }
 
 
-void UIHandler::setUpControls(){
+void MainWindowHandler::setUpControls(){
     ui->radioWord->setChecked(true);
     ui->radioWord->setAutoExclusive(true);
 
@@ -27,13 +27,17 @@ void UIHandler::setUpControls(){
     QObject::connect(ui->buttonFetch, SIGNAL (clicked()), this, SLOT (handleFetchButton()));
     QObject::connect(ui->buttonUpdate, SIGNAL (clicked()), this, SLOT (handleUpdateButton()));
     QObject::connect(ui->radioIdiom, SIGNAL (toggled(bool)), this, SLOT (handleIdiomRadioClicked()));
+    QObject::connect(ui->buttonUploadFile, SIGNAL (clicked()), this, SLOT (handleLoadFile()));
 }
 
+void MainWindowHandler::handleLoadFile() {
+    fileHandler = new FileHandler();
+}
 
-void UIHandler::handleCloseButton(){
+void MainWindowHandler::handleCloseButton(){
     QCoreApplication::quit();
 }
-void UIHandler::handleFetchButton(){
+void MainWindowHandler::handleFetchButton(){
     BaseData *baseData = new BaseData();
     if(ui->fieldWord->text().size() == 0) {
         QMessageBox::information(0,"Warning","Please enter the word");
@@ -65,7 +69,7 @@ void UIHandler::handleFetchButton(){
 
 }
 
-void UIHandler::handleUpdateButton(){
+void MainWindowHandler::handleUpdateButton(){
     if(ui->fieldWord->text().size() == 0 || ui->fieldMeaning->toPlainText().size() == 0 ) {
         QMessageBox::information(0,"Warning","Either word or meaning is left empty");
         return;
@@ -86,7 +90,7 @@ void UIHandler::handleUpdateButton(){
 
 }
 
-void UIHandler::handleSaveButton(){
+void MainWindowHandler::handleSaveButton(){
 
     if(ui->fieldWord->text().size() == 0 || ui->fieldMeaning->toPlainText().size() == 0 ) {
         QMessageBox::information(0,"Warning","Either word or meaning is left empty");
@@ -109,7 +113,7 @@ void UIHandler::handleSaveButton(){
 
 }
 
-void UIHandler::clearFields(){
+void MainWindowHandler::clearFields(){
     ui->fieldWord->setText("");
     ui->fieldMeaning->setText("");
     ui->fieldSyn->setText("");
@@ -118,7 +122,7 @@ void UIHandler::clearFields(){
     ui->comboBox->setCurrentIndex(2);
 }
 
-void UIHandler::handleIdiomRadioClicked(){
+void MainWindowHandler::handleIdiomRadioClicked(){
     if (ui->radioIdiom->isChecked()) {
         ui->labelWord->setText("Idiom");
 
